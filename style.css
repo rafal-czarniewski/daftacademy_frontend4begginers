@@ -1,0 +1,228 @@
+/*
+Sorki, że tak na odpierdziel, ale za późno się za to wziąłem. Następnym razem wszystko będzie pięknie! :)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(images/background.svg);
+    background-attachment: fixed;
+    width: 1200px;
+    height: auto;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+h1 {
+    font-family: 'open sans', 'georgia';
+    letter-spacing: 4.5px;
+    font-weight: bold;
+    font-size: 28px;
+    color: #EF008E;
+}
+
+h2 {
+    font-family: 'open sans', 'georgia';
+    letter-spacing: 3.8px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #EF008E;
+    text-transform: uppercase;
+}
+
+nav > ul > li > a {
+    font-family: 'open sans', 'georgia';
+    letter-spacing: 6.7px;
+    font-weight: bold;
+    font-size: 13px;
+    opacity: 0.8;
+    color: #EF008E;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.band-members {
+    display: flex;
+    margin-top: 270px;
+}
+
+.form__label {
+    font-family: 'open sans', 'georgia';
+    letter-spacing: 6.7px;
+    font-size: 13px;
+    opacity: 0.5;
+    color: #CCC8FF;
+}
+
+#about img {
+    float: left;
+}
+
+.concerts {
+    height: auto;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-areas:
+        "a b"
+        "c d";
+}
+
+.concerts__image {
+    width: 300px;   
+}
+
+.gallery {
+    height: auto;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-areas:
+        "a b c"
+        "d e f"
+        "g j h";
+}
+
+.gallery__image {
+    width: 300px;
+    
+}
+
+.about-section__desc {
+    z-index: 2;
+    font-size: 12px;
+    color: #DBD8FB;
+    font-family: 'open sans', 'georgia';
+    background-color: #25072E;
+    width: 300px;
+}
+
+#about > img {
+    z-index: 1;
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+     
+}
+
+#contact > img {
+    width: 300px;
+    height: 300px;
+}
+/*
+ZAGADNIENIE PONADPROGRAMOWE
+
+Rekomendowany zestaw właściwości, które pozwalają na ukrycie tekstu w taki sposób,
+że będzie niewidoczny do standardowego użytkownika, a czytniki ekranowe wciąż będą go czytać.
+
+Więcej na ten temat: https://webaim.org/techniques/css/invisiblecontent/
+*/
+.screen-reader-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/*
+Sekcja pomocnicza, aby zwizualizować pozycje głównych bloków strony. Będzie usunięta w następnych krokach.
+*/
+.page-header {
+    background-color: 
+}
+
+.page-content {
+    background-color: 
+}
+
+.page-footer {
+    background-color:
+}
+
+.content-section {
+    background-color: 
+}
+.content-section:nth-child(odd) {
+    background-color: 
+}
+/*
+Koniec sekcji pomocniczej
+*/
+
+/*
+Ustawiając sekcje nagłówka i stopki w pozycji 'fixed' sprawiamy,
+że niezależnie od pozycji paska przewijania elementy te będą znajdowały się
+w tej samej pozycji względem okna przeglądarki.
+Natomiast pozycję tę ustawiamy za pomocą parametrów 'top', 'bottom', 'right', 'left'.
+*/
+.page-header {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+}
+
+.page-footer {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+}
+
+/*
+Lewy margines ustawiony na kontenerze z główną zawartością strony sprawia,
+że nie będzie ona nachodzić na nagłówek i stopkę niezależnie od pozycji paska przewijania.
+Na projekcie graficznym sekcja menu ma szerokość około 170px i jest oddalona od krawędzi ekranu
+o 50px, więc można założyć, że 220px marginesu będzie wartością stosunkowo bezpieczną.
+Z kolei spady (padding) nadane na kontener wyznaczają minimalną odległość, na jaką będzie oddalona
+treść strony od otaczających ją granic kontenera (wartość "0 10%" jest
+skrótem od padding-top: 0, padding-bottom: 0, padding-left: 10%, padding-right: 10%).
+Właściwość "text-align: right" przykleja zawartość do prawej strony
+(oddziałuje na elementy, które są elementami inline'owymi, np. tekst, znaczniki <a>, <span> czy elementy z nadanym stylem "display: inline-block").
+*/
+.page-content {
+    margin-left: 220px;
+    padding: 0 10%;
+    text-align: right;
+}
+
+/*
+Projekt graficzny zakłada, że każda sekcja strony będzie wypełniać całą wysokość okna przeglądarki
+lub więcej, jeśli zawartość danej sekcji jest wyższa. Dlatego świetnym rozwiązaniem
+będzie użycie jednostki "vh", która oznacza 1% wysokości okna przeglądarki z właściwością "min-height",
+która wymusza wysokość elementu na zadaną wartość lub wyższą.
+*/
+.content-section {
+    min-height: 100vh;
+}
